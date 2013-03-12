@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'rake'
+gem 'activeresource'
+gem 'minitest'
+gem 'main'
+gem 'pry'
+gem 'mocha'
+gem 'autotest-standalone'
+gem 'autotest-growl'
