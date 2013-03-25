@@ -1,5 +1,5 @@
 require 'main'
-require 'app/models/config_service'
+require 'app/services/config_service'
 
 Main {
   mode 'config' do
