@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<card>
+  <name>Perf: Quick Hit - Optimize FSP Sort</name>
+  <description>h2. Story Background
+
+There is a custom sort on FSPs that sort on whether an FSP is centrally facilitated followed by the FSP description- which is a string concatenation of state code and name. This takes some time (around 2 seconds locally when loading search/buy_home. The sort is performed in ruby and string concatenation happens each time for each fsp that is being compared. This could be improved. 
+
+There is only 1 fsp that is centrally facilitated, myCentralAuction. It may be faster to just add this fsp to the fsp array at the end of the sort, rather performing a custom comparison on all fsps for to check to see if is centrally facilitated.
+
+Note: in FspSelection#available_fsps there is another fsp.sort that may be optimized as well. Others to look at also include FeeController#update_fsps and FeeListPresenter#fsps.
+
+h2. Solution
+
+Sorting is now done through sql with a named_scope. The centrally facilitated fsp is moved to the top of the fsp list in the presenter. 
+
+h2. Notes for Testing
+
+This card effects fsp and distribution center lists. Examples of where they can be found are:
+
+* search/buy_home 
+* inventory/move_vehicles
+* inventory/bulk_edit
+* inventory/_manage_inventory_search_form (search form on top of tabs in inventory manager page)
+* listing_wizard/vehicle_information</description>
+  <card_type url="http://mingle.ove.local/api/v2/projects/ove_2/card_types/828.xml">
+    <name>Card</name>
+  </card_type>
+  <id type="integer">173599</id>
+  <number type="integer">19480</number>
+  <project url="http://mingle.ove.local/api/v2/projects/ove_2.xml">
+    <name>OVE 2: Ovelution</name>
+    <identifier>ove_2</identifier>
+  </project>
+  <version type="integer">12</version>
+  <project_card_rank type="integer">1182</project_card_rank>
+  <created_on type="datetime">2013-04-01T21:36:52Z</created_on>
+  <modified_on type="datetime">2013-04-11T20:56:03Z</modified_on>
+  <modified_by url="http://mingle.ove.local/api/v2/users/574.xml">
+    <name>Derek Johnston</name>
+    <login>djohnston</login>
+  </modified_by>
+  <created_by url="http://mingle.ove.local/api/v2/users/574.xml">
+    <name>Derek Johnston</name>
+    <login>djohnston</login>
+  </created_by>
+  <properties type="array">
+    <property type_description="Managed text list" hidden="false">
+      <name>Status</name>
+      <value>In Development</value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Priority to Deliver</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed number list" hidden="false">
+      <name>Commitment Estimate</name>
+      <value>0.25</value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Committed</name>
+      <value>No</value>
+    </property>
+    <property type_description="Any text" hidden="false">
+      <name>Hangover from</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Team</name>
+      <value>Onyx</value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Release</name>
+      <value>1.112 - 5/3/2013</value>
+    </property>
+    <property type_description="Automatically generated from the team list" hidden="false">
+      <name>Application Owner</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Automatically generated from the team list" hidden="false">
+      <name>Analyst</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Dev Pair</name>
+      <value>Ike/Derek</value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Automation</name>
+      <value>N/A</value>
+    </property>
+    <property type_description="Managed number list" hidden="false">
+      <name>UI Commitment Estimate</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed number list" hidden="false">
+      <name>QA Commitment Estimate</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed text list" hidden="true">
+      <name>Stretch</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Date" hidden="true">
+      <name>Testing Started</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Date" hidden="true">
+      <name>Testing Completed</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Date" hidden="true">
+      <name>Moved to Complete - IN PRODUCTION on</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Card" hidden="true">
+      <name>Iteration Added to Scope</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Date" hidden="true">
+      <name>Moved to New on</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Data Collection</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>UI Dev Contact</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>UX Contact</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Related cards</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Automatically generated from the team list" hidden="false">
+      <name>Tester</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed number list" hidden="false">
+      <name>Dev Pts Estimate</name>
+      <value>0.25</value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Business Approval</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Card" hidden="false">
+      <name>Iteration Card</name>
+      <value url="http://mingle.ove.local/api/v2/projects/ove_2/cards/14.xml">
+        <number type="integer">14</number>
+      </value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Dev Tasked by</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Generic Managed Text List</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Any card used in tree" hidden="false">
+      <name>Iteration</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Any card used in tree" hidden="false">
+      <name>Initiative</name>
+      <value url="http://mingle.ove.local/api/v2/projects/ove_2/cards/19295.xml">
+        <number type="integer">19295</number>
+      </value>
+    </property>
+    <property type_description="Any card used in tree" hidden="false">
+      <name>UX</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Any card used in tree" hidden="false">
+      <name>Feature</name>
+      <value nil="true"></value>
+    </property>
+  </properties>
+  <tags>
+  </tags>
+  <rendered_description url="http://mingle.ove.local/api/v2/projects/ove_2/render?content_provider%5Bid%5D=173599&amp;content_provider%5Btype%5D=card">
+  </rendered_description>
+</card>
