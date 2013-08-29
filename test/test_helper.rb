@@ -1,4 +1,6 @@
+require 'minitest/autorun'
 require 'minitest/spec'
+
 require 'mocha/setup'
 require 'fakeweb'
 require 'pry'
