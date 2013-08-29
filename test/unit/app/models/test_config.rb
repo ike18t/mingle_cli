@@ -1,4 +1,4 @@
-require 'test_helper'
+require_relative '../../../../test/test_helper'
 
 describe Application::Config do
   it 'should update attributes with the values passed into initialize' do

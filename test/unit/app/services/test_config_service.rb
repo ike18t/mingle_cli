@@ -1,7 +1,7 @@
-require 'test_helper'
+require_relative '../../../test_helper'
 
 describe Application::ConfigService do
-  before do 
+  before do
     Application::ConfigService.stubs(:save)
     Application::ConfigService.stubs(:read).returns(Application::Config.new)
   end

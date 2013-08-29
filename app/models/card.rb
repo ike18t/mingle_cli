@@ -1,5 +1,5 @@
 require 'active_resource'
-require 'app/services/url_generator'
+require_relative '../services/url_generator'
 
 class Card < ActiveResource::Base
   self.format = :xml

@@ -1,5 +1,5 @@
 require 'yaml'
-require 'app/models/config'
+require_relative '../models/config'
 
 module Application
   class ConfigService
