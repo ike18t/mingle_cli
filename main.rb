@@ -37,6 +37,30 @@ Main {
     end
   end
 
+  mode :card do
+    description 'Get card info'
+
+    argument(:number) {
+      argument :required
+      cast :int
+      description 'Number of the card to lookup'
+    }
+
+    option(:format) {
+      argument :required
+      cast :string
+      description 'Format of the response, enclose desired return properties in brackets.'
+    }
+
+    def run
+      card = Card.find(params[:number].value)
+      if params[:format].given?
+        card.extend(Formattable)
+        puts card.format(params[:format].value)
+      end
+    end
+  end
+
   def run
     puts "default"
   end
