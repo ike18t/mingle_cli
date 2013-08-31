@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<card_comments type="array">
+  <comment>
+    <content>Blocked waiting for tests to gather numbers from card #20012</content>
+    <created_by url="http://mingle.ove.local/api/v2/users/574.xml">
+      <name>Derek Johnston</name>
+      <login>djohnston</login>
+    </created_by>
+    <created_at type="datetime">2013-06-12T14:47:51Z</created_at>
+  </comment>
+  <comment>
+    <content>Waiting on decisions from business about how search will work going forward.</content>
+    <created_by url="http://mingle.ove.local/api/v2/users/574.xml">
+      <name>Derek Johnston</name>
+      <login>djohnston</login>
+    </created_by>
+    <created_at type="datetime">2013-05-22T13:22:56Z</created_at>
+  </comment>
+</card_comments>

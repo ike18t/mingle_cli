@@ -52,11 +52,18 @@ Main {
       description 'Format of the response, enclose desired return properties in brackets.'
     }
 
+    option(:comments) {
+      description 'View comments for the given card number.'
+    }
+
     def run
       card = Card.find(params[:number].value)
       if params[:format].given?
         card.extend(Formattable)
         puts card.format(params[:format].value)
+      end
+      if params[:comments].given?
+        card.comments.sort.each{|comment| puts "#{comment.created_at} #{comment.created_by.name}: #{comment.content}"}
       end
     end
   end

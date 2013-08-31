@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'activeresource'
+gem 'rails-observers'
+gem 'activeresource', :github => 'kenips/activeresource'
 gem 'minitest'
 gem 'main'
 gem 'pry'
