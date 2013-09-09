@@ -22,6 +22,11 @@ Main {
       description 'Set the password used to access mingle'
     }
 
+    option(:project) {
+      argument :optional
+      description 'Set the project to use to access cards in mingle'
+    }
+
     def run
       updated = params.select(&:given?)
       updated = updated.inject({}) do |result, p|

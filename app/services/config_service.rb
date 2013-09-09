@@ -25,7 +25,7 @@ module Application
 
     def self.read
       config_data = File.read(FILENAME)
-      YAML::load(config_data) || nil
+      YAML::load(config_data)
     rescue Errno::ENOENT
       nil
     end

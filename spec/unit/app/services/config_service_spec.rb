@@ -14,9 +14,6 @@ describe Application::ConfigService do
       config.username.should eq(updates[:username])
     end
 
-    it 'should raise if passed an invalid param' do
-      updates = { :username1 => 'ike' }
-      expect { Application::ConfigService.update(updates) }.to raise_error(NoMethodError)
-    end
+    it { expect { Application::ConfigService.update({ :username1 => 'ike' }) }.to raise_error(NoMethodError) }
   end
 end

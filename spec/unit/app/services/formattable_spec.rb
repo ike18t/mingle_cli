@@ -6,17 +6,13 @@ describe Formattable do
     @card.extend Formattable
   end
 
-  it 'should return the same string passed in if it contains no attributes' do
-    @card.format('status').should eq('status')
-  end
+  it { @card.format('no attributes here').should eq('no attributes here') }
 
   it { @card.status.should eq(@card.format('[status]')) }
 
   it { @card.format('name is [name], status is [status]').should eq("name is #{@card.name}, status is #{@card.status}") }
 
-  it 'should raise if format contains invalid attributes' do
-    expect { @card.format('[bah] is invalid') }.to raise_error(NoMethodError)
-  end
+  it { expect { @card.format('[not invalid] is invalid') }.to raise_error(NoMethodError) }
 
   it { @card.format('').should be_empty }
 

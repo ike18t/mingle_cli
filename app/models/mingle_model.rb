@@ -10,7 +10,7 @@ class MingleModel < ActiveResource::Base
     super method_name, *args
   rescue NoMethodError
     match = get_attribute_value(method_name)
-    match = get_property_value(method_name) if self.respond_to?(:properties) unless match
+    match = get_property_value(method_name) if match.nil? and self.respond_to?(:properties)
 
     raise if match.nil?
     match

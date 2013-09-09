@@ -1,7 +1,7 @@
 require_relative '../../../test_helper'
 
 describe MingleModel do
-  describe 'with attributes' do
+  context 'with attributes' do
     before do
       @mingle = MingleModel.new
       @mingle.attributes = { 'foo' => 'bar', 'bizz' => 'buzz' }
@@ -12,7 +12,7 @@ describe MingleModel do
     it { @mingle.bizz.should eq('buzz') }
   end
 
-  describe 'with properties' do
+  context 'with properties' do
     before do
       @mingle = MingleModel.new
       @mingle.properties = [ OpenStruct.new({ :name => 'foo', :value => 'bar' }), OpenStruct.new({ :name => 'bizz', :value => 'buzz' }) ]
@@ -25,7 +25,7 @@ describe MingleModel do
 
   it { expect { MingleModel.new.invalid_method }.to raise_error(NoMethodError) }
 
-  describe 'key encode' do
+  context 'key encode' do
     before do
       @mingle = MingleModel.new
       @mingle.properties = [ OpenStruct.new({ :name => 'Foo Bar', :value => 'bar' }) ]
