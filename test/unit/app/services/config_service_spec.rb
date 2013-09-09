@@ -6,19 +6,17 @@ describe Application::ConfigService do
     Application::ConfigService.stubs(:read).returns(Application::Config.new)
   end
 
-  describe 'update' do
+  context 'update' do
     it 'should update config model with hash values passed to update' do
-      updates = {:username => 'ike'}
+      updates = { :username => 'ike' }
       Application::ConfigService.update updates
       config = Application::ConfigService.get
-      assert_equal updates[:username], config.username
+      config.username.should eq(updates[:username])
     end
 
     it 'should raise if passed an invalid param' do
-      updates = {:username1 => 'ike'}
-      assert_raises NoMethodError do
-        Application::ConfigService.update updates
-      end
+      updates = { :username1 => 'ike' }
+      expect { Application::ConfigService.update(updates) }.to raise_error(NoMethodError)
     end
   end
 end

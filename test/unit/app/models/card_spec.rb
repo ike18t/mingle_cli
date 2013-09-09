@@ -6,17 +6,17 @@ describe Card do
     @card = Card.find(19480)
   end
 
-  describe 'should pull properties' do
+  context 'should pull properties' do
     it 'should pull the status property for the card' do
-      assert_equal 'In Development', @card.status
+      @card.status.should eq('In Development')
     end
 
-    it 'should raise NoMethodError if property does not exist' do
-      Proc.new{@card.bah}.must_raise NoMethodError
+    it 'should raise NoMethodError' do
+      Proc.new{@card.bah}.should raise_error(NoMethodError)
     end
   end
 
   it 'should return card number as id' do
-    assert_equal 19480, @card.id
+    @card.id.should eq(19480)
   end
 end

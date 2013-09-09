@@ -1,7 +1,5 @@
-require 'minitest/autorun'
-require 'minitest/spec'
-
-require 'mocha/setup'
+require 'rspec'
+require 'mocha/api'
 require 'fakeweb'
 require 'pry'
 
@@ -10,4 +8,4 @@ FakeWeb.register_uri(:get, %r|19480.xml|, :body => File.read('test/19480.xml'))
 FakeWeb.register_uri(:get, %r|19480/comments.xml|, :body => File.read('test/19480_comments.xml'))
 
 files = Dir.glob('app/**/*.rb')
-files.each{|file| puts file; require File.expand_path("#{file}"); }
+files.each{ |file| require File.expand_path("#{file}"); }

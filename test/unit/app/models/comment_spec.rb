@@ -8,13 +8,13 @@ describe Comment do
     @comments = @card.comments
   end
 
-  describe 'should pull attributes' do
+  context 'should pull attributes' do
     it 'should pull who created the comment from the attributes' do
-      assert_equal 'Derek Johnston', @comments.first.created_by.name
+      @comments.first.created_by.name.should eq('Derek Johnston')
     end
 
     it 'should raise NoMethodError if attribute does not exist' do
-      Proc.new{@comments.first.bah}.must_raise NoMethodError
+      Proc.new{@comments.first.bah}.should raise_error(NoMethodError)
     end
   end
 
@@ -24,6 +24,6 @@ describe Comment do
     newer = Comment.new
     newer.created_at = Date.parse('2005-02-03')
     comments = [newer, older]
-    assert_equal [older, newer], comments.sort
+    comments.sort.should eq([older, newer])
   end
 end

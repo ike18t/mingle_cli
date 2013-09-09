@@ -6,15 +6,15 @@ describe Application::Config do
     password = 'password1'
     hostname = 'http://bah'
     config = Application::Config.new :username => username, :password => password, :hostname => hostname
-    assert_equal username, config.username
-    assert_equal password, config.password
-    assert_equal hostname, config.hostname
+    config.username.should eq(username)
+    config.password.should eq(password)
+    config.hostname.should eq(hostname)
   end
 
   it 'should have blank values if nothing passed in on intialization' do
     config = Application::Config.new
-    assert_equal nil, config.username
-    assert_equal nil, config.password
-    assert_equal nil, config.hostname
+    config.username.should be_nil
+    config.password.should be_nil
+    config.hostname.should be_nil
   end
 end

@@ -43,7 +43,7 @@ Main {
     argument(:number) {
       argument :required
       cast :int
-      description 'Number of the card to lookup'
+      description 'Number of the card to lookup.'
     }
 
     option(:format) {
@@ -59,7 +59,6 @@ Main {
     def run
       card = Card.find(params[:number].value)
       if params[:format].given?
-        card.extend(Formattable)
         puts card.format(params[:format].value)
       end
       if params[:comments].given?
