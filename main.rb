@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 require 'bundler/setup'
 require 'main'
-require_relative 'app/models/card'
-require_relative 'app/services/config_service'
 require_relative 'app/services/formattable'
 
 Main {
   mode :config do
+    require_relative 'app/services/config_service'
+
     option(:hostname) {
       argument :optional
       description 'Set the server hostname used to access mingle'
@@ -43,6 +43,8 @@ Main {
   end
 
   mode :card do
+    require_relative 'app/models/card'
+
     description 'Get card info'
 
     argument(:number) {
