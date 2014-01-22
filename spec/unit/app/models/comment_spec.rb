@@ -7,7 +7,7 @@ describe Comment do
   end
 
   context 'should pull attributes' do
-    it { @comments.first.created_by.name.should eq('Derek Johnston') }
+    it { @comments.first.created_by.name.should eq('Homer Simpson') }
 
     it { Proc.new{@comments.first.nonexistent_attribute}.should raise_error(NoMethodError) }
   end
