@@ -7,17 +7,17 @@ module Application
       updates.each do |key, value|
         get.send("#{key}=", value)
       end
-      save
+      save!
     end
 
     def self.get
-      @config = @config || (read() || Config.new)
+      @config ||= (read() || Config.new)
     end
 
     protected
     FILENAME = '.config'
 
-    def self.save
+    def self.save!
       File.open(FILENAME, 'w+') do |f|
         f.write get.to_yaml
       end
