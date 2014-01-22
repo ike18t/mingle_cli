@@ -1,5 +1,4 @@
 require_relative 'mingle_model'
-require_relative 'card'
 
 class Comment < MingleModel
 

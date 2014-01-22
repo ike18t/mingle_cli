@@ -67,7 +67,7 @@ Main {
         puts card.format(params[:format].value)
       end
       if params[:comments].given?
-        card.comments.sort.each{|comment| puts "#{comment.created_at} #{comment.created_by.name}: #{comment.content}"}
+        card.comments.sort.each{ |comment| puts "#{comment.created_at} #{comment.created_by.name}: #{comment.content}" }
       end
     end
   end
