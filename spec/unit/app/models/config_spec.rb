@@ -17,4 +17,10 @@ describe Application::Config do
     config.hostname.should be_nil
     config.project.should be_nil
   end
+
+  it 'should update password instance variable with the encrypted hash' do
+    password = 'password1'
+    config = Application::Config.new :password => password
+    config.instance_variable_get('@password').should eq(AESCrypt.encrypt(password, Application::Config::PasswordKey))
+  end
 end

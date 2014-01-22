@@ -4,6 +4,7 @@ gem 'rake'
 gem 'rails-observers'
 gem 'activeresource', :github => 'kenips/activeresource'
 gem 'main'
+gem 'aescrypt'
 
 group :test do
   gem 'pry'
