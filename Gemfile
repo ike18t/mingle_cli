@@ -13,4 +13,5 @@ group :test do
   gem 'autotest-growl'
   gem 'fakeweb'
   gem 'rspec'
+  gem 'coveralls'
 end
