@@ -1,8 +1,8 @@
-require 'yaml'
-require_relative '../models/config'
-
 module Application
   class ConfigService
+    require 'yaml'
+    require_relative '../models/config'
+
     def self.update updates
       updates.each do |key, value|
         get.send("#{key}=", value)

@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require 'bundler/setup'
 require 'main'
-require_relative 'app/services/formattable'
 
 Main {
   mode :config do

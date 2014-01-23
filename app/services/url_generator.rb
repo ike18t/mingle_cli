@@ -1,6 +1,6 @@
-require_relative '../services/config_service'
-
 class UrlGenerator
+  require_relative '../services/config_service'
+
   SITE = 'http://%s:%s@%s/api/v2/projects/%s'
 
   def self.generate

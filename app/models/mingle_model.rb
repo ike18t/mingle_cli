@@ -1,7 +1,7 @@
 require 'active_resource'
-require_relative '../services/url_generator'
 
 class MingleModel < ActiveResource::Base
+  require_relative '../services/url_generator'
 
   self.format = :xml
   self.site = UrlGenerator.generate
@@ -12,7 +12,7 @@ class MingleModel < ActiveResource::Base
     match = get_attribute_value(method_name)
     match = get_property_value(method_name) if match.nil? and self.respond_to?(:properties)
 
-    raise if match.nil?
+    puts "Method #{method_name} does not exist" and exit(1) if match.nil?
     match
   end
 
