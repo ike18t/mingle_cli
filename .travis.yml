@@ -10,7 +10,7 @@ env:
   - RUBY_PLATFORM="x86_64-linux"
   - RUBY_PLATFORM="x86_64-darwin11.3.0"
 before_script:
-  - ./main.rb config --username=test --hostname=test --password=test --hostname=test.local
+  - ./mingle_cli.rb config --username=test --hostname=test --password=test --hostname=test.local
 matrix:
   allow_failures:
     - rvm: ruby-head
