@@ -12,7 +12,7 @@ class MingleModel < ActiveResource::Base
     match = get_attribute_value(method_name)
     match = get_property_value(method_name) if match.nil? and self.respond_to?(:properties)
 
-    puts "Method #{method_name} does not exist" and exit(1) if match.nil?
+    raise if match.nil?
     match
   end
 
