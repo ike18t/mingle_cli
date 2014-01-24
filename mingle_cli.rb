@@ -73,7 +73,35 @@ Main {
     end
   end
 
+  mode :cards do
+    require_relative 'app/models/card'
+
+    description 'Get cards by filter'
+
+    option(:where) {
+      argument :required
+      cast :string
+      description 'The MQL style where filter.  Remember: Put quotes around values with spaces.'
+    }
+
+    option(:format) {
+      argument :required
+      cast :string
+      description 'Format of the response, enclose desired return properties in brackets.'
+    }
+
+    def run
+      where = params[:where].value
+      cards = Card.find(:all, :params => { :filters => { :mql => where } } )
+      if params[:format].given?
+        cards.each do |card|
+          puts card.format(params[:format].value)
+        end
+      end
+    end
+  end
+
   def run
-    puts "default"
+    puts 'Please use a mode.  See help for more details'
   end
 }
