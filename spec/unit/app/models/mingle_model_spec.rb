@@ -15,12 +15,14 @@ describe MingleModel do
   context 'with properties' do
     before do
       @mingle = MingleModel.new
-      @mingle.properties = [ OpenStruct.new({ :name => 'foo', :value => 'bar' }), OpenStruct.new({ :name => 'bizz', :value => 'buzz' }) ]
+      @mingle.properties = [ OpenStruct.new({ :name => 'foo', :value => 'bar' }), OpenStruct.new({ :name => 'bizz', :value => 'buzz' }), OpenStruct.new({ :name => 'bah', :value => nil }) ]
     end
 
     it { @mingle.foo.should eq('bar') }
 
     it { @mingle.bizz.should eq('buzz') }
+
+    it { @mingle.bah.should eq('not set') }
   end
 
   it { expect { MingleModel.new.invalid_method }.to raise_error(NoMethodError) }

@@ -22,7 +22,7 @@ class MingleModel < ActiveResource::Base
 
   def get_property_value name
     property = self.properties.select{ |prop| key_encode(prop.name) == key_encode(name) }.first
-    property.value unless property.nil?
+    property.value || 'not set' unless property.nil?
   end
 
   private

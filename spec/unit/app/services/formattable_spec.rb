@@ -16,8 +16,4 @@ describe Formattable do
 
   it { @card.format('').should be_empty }
 
-  it 'should return text "not set" if the property is nil' do
-    @card.status = nil
-    @card.format('[status]').should eq('not set')
-  end
 end
