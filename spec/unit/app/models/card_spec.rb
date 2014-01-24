@@ -7,6 +7,7 @@ describe Card do
 
   context 'should pull properties' do
     it { @card.status.should eq('In Development') }
+    it { @card.dev_pair.should eq('Homer/Bart') }
 
     it { Proc.new{@card.nonexistent_property }.should raise_error(NoMethodError) }
   end
