@@ -78,10 +78,10 @@ Main {
 
     description 'Get cards by filter'
 
-    option(:where) {
+    option(:filter) {
       argument :required
       cast :string
-      description 'The MQL style where filter.  Remember: Put quotes around values with spaces.'
+      description 'MQL filter.  Example:  Status is "in development"'
     }
 
     option(:format) {
@@ -91,8 +91,7 @@ Main {
     }
 
     def run
-      where = params[:where].value
-      cards = Card.find(:all, :params => { :filters => { :mql => where } } )
+      cards = Card.find(:all, :params => { :filters => { :mql => params[:filter].value } } )
       if params[:format].given?
         cards.each do |card|
           puts card.format(params[:format].value)
