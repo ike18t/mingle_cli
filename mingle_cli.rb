@@ -3,7 +3,7 @@ require 'bundler/setup'
 require 'main'
 
 Main {
-  mode :config do
+  mode :configure do
     require_relative 'app/services/config_service'
 
     option(:hostname) {
