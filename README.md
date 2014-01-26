@@ -9,12 +9,10 @@ Command line interface to Mingle's API.
 
 Use bundler to install dependencies. 
 
-To use:
+**Usage**
 
-Execute the mingle_cli.rb with the following modes:
+`mingle_cli.rb card \<number\> \<format\>`
 
-card \<number\> \<format\>
+`mingle_cli.rb cards \<filter\> \<format\>`
 
-cards \<filter\> \<format\>
-
-comments \<number\>
+`mingle_cli.rb comments \<number\>`
