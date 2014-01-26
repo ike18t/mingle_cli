@@ -73,13 +73,13 @@ Main {
 
     description 'Get cards by filter'
 
-    option(:filter) {
+    argument(:filter) {
       argument :required
       cast :string
       description 'MQL filter.  Example:  Status is "in development"'
     }
 
-    option(:format) {
+    argument(:format) {
       argument :required
       cast :string
       description 'Format of the response, enclose desired return properties in brackets.'
