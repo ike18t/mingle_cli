@@ -64,12 +64,7 @@ Main {
 
     def run
       card = Card.find(params[:number].value)
-      if params[:format].given?
-        puts card.format(params[:format].value)
-      end
-      if params[:comments].given?
-        card.comments.sort.each{ |comment| puts "#{comment.created_at} #{comment.created_by.name}: #{comment.content}" }
-      end
+      puts card.format(params[:format].value)
     end
   end
 
@@ -96,6 +91,25 @@ Main {
         cards.each do |card|
           puts card.format(params[:format].value)
         end
+      end
+    end
+  end
+
+  mode :comments do
+    require_relative 'app/models/card'
+
+    description 'Get comments for a card.'
+
+    argument(:number) {
+      argument :required
+      cast :int
+      description 'Number of the card to lookup.'
+    }
+
+    def run
+      card = Card.find(params[:number].value)
+      card.comments.sort.each do |comment|
+        puts "#{comment.created_at} #{comment.created_by.name}: #{comment.content}"
       end
     end
   end
