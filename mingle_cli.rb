@@ -52,7 +52,7 @@ Main {
       description 'Number of the card to lookup.'
     }
 
-    option(:format) {
+    argument(:format) {
       argument :required
       cast :string
       description 'Format of the response, enclose desired return properties in brackets.'
@@ -87,10 +87,8 @@ Main {
 
     def run
       cards = Card.find(:all, :params => { :filters => { :mql => params[:filter].value } } )
-      if params[:format].given?
-        cards.each do |card|
-          puts card.format(params[:format].value)
-        end
+      cards.each do |card|
+        puts card.format(params[:format].value)
       end
     end
   end
