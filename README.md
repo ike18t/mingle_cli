@@ -5,3 +5,16 @@
 
 MingleCLI
 =========
+Command line interface to Mingle's API.  
+
+Use bundler to install dependencies. 
+
+To use:
+
+Execute the mingle_cli.rb with the following modes:
+
+card \<number\> \<format\>
+
+cards \<filter\> \<format\>
+
+comments \<number\>
