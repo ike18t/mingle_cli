@@ -4,7 +4,7 @@ require 'main'
 
 Main {
   mode :configure do
-    require_relative 'app/services/config_service'
+    require_relative 'lib/services/config_service'
 
     option(:hostname) {
       argument :optional
@@ -42,7 +42,7 @@ Main {
   end
 
   mode :card do
-    require_relative 'app/models/card'
+    require_relative 'lib/models/card'
 
     description 'Get card info'
 
@@ -69,7 +69,7 @@ Main {
   end
 
   mode :cards do
-    require_relative 'app/models/card'
+    require_relative 'lib/models/card'
 
     description 'Get cards by filter'
 
@@ -94,7 +94,7 @@ Main {
   end
 
   mode :comments do
-    require_relative 'app/models/card'
+    require_relative 'lib/models/card'
 
     description 'Get comments for a card.'
 
