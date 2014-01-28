@@ -1,11 +1,7 @@
-require_relative 'mingle_model'
-
 class Comment < MingleModel
-
-  self.prefix = '/cards/:number/'
+  self.site = UrlGenerator.generate + '/cards/:card_id'
 
   def <=> next_up
    self.created_at <=> next_up.created_at
   end
-
 end

@@ -1,33 +1,30 @@
-module Application
-  class ConfigService
-    require 'yaml'
-    require_relative '../models/config'
+require 'yaml'
 
-    def self.update updates
-      updates.each do |key, value|
-        get.send("#{key}=", value)
-      end
-      save!
+class ConfigService
+  def self.update updates
+    updates.each do |key, value|
+      get.send("#{key}=", value)
     end
+    save!
+  end
 
-    def self.get
-      @config ||= (read() || Config.new)
+  def self.get
+    @config ||= (read() || AppConfig.new)
+  end
+
+  protected
+  FILENAME = '.config'
+
+  def self.save!
+    File.open(FILENAME, 'w+') do |f|
+      f.write get.to_yaml
     end
+  end
 
-    protected
-    FILENAME = '.config'
-
-    def self.save!
-      File.open(FILENAME, 'w+') do |f|
-        f.write get.to_yaml
-      end
-    end
-
-    def self.read
-      config_data = File.read(FILENAME)
-      YAML::load(config_data)
-    rescue Errno::ENOENT
-      nil
-    end
+  def self.read
+    config_data = File.read(FILENAME)
+    YAML::load(config_data)
+  rescue Errno::ENOENT
+    nil
   end
 end

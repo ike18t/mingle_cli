@@ -1,8 +1,6 @@
 require 'active_resource'
 
 class MingleModel < ActiveResource::Base
-  require_relative '../services/url_generator'
-
   self.format = :xml
   self.site = UrlGenerator.generate
 
@@ -29,5 +27,4 @@ class MingleModel < ActiveResource::Base
   def key_encode string
     string.downcase.to_s.gsub('_', ' ')
   end
-
 end

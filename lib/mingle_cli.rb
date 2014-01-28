@@ -1,0 +1,8 @@
+require 'active_resource'
+autoload :AppConfig, 'models/app_config'
+autoload :ConfigService, 'services/config_service'
+autoload :UrlGenerator, 'services/url_generator'
+autoload :MingleModel, 'models/mingle_model'
+autoload :Formattable, 'services/formattable'
+autoload :Comment, 'models/comment'
+autoload :Card, 'models/card'
