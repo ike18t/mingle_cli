@@ -21,11 +21,11 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = ['LICENSE.txt', 'README.md']
   spec.require_paths    = ['lib']
 
-  spec.add_runtime_dependency('activeresource')
-  spec.add_runtime_dependency('main')
-  spec.add_runtime_dependency('aescrypt')
-  spec.add_development_dependency('rake')
-  spec.add_development_dependency('rspec')
-  spec.add_development_dependency('mocha')
-  spec.add_development_dependency('fakeweb')
+  spec.add_runtime_dependency('activeresource', '~> 4.0')
+  spec.add_runtime_dependency('main', '~> 5.2')
+  spec.add_runtime_dependency('aescrypt', '~> 1.0')
+  spec.add_development_dependency('rake', '~> 10.1')
+  spec.add_development_dependency('rspec', '~> 2.14')
+  spec.add_development_dependency('mocha', '~> 0.14')
+  spec.add_development_dependency('fakeweb', '~> 1.3')
 end
