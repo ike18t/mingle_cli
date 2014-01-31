@@ -1,5 +1,6 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
+
 require 'rspec'
 require 'mocha/api'
 require 'pry'
@@ -13,3 +14,8 @@ Coveralls.wear!
 FakeWeb.register_uri(:get, %r|cards.xml|, :body => File.read('spec/fixtures/cards.xml'))
 FakeWeb.register_uri(:get, %r|19480.xml|, :body => File.read('spec/fixtures/19480.xml'))
 FakeWeb.register_uri(:get, %r|19480/comments.xml|, :body => File.read('spec/fixtures/19480_comments.xml'))
+
+ConfigService.stubs(:get).returns(AppConfig.new({ :username => 'test',
+                                                  :password => 'test',
+                                                  :hostname => 'test.local',
+                                                  :project  => 'test' }))
