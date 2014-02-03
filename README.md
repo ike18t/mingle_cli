@@ -24,12 +24,17 @@ mingle_cli.rb cards [filter] [format]
 ```
 
 ```
+mingle_cli.rb comment [number] [comment]
+```
+
+```
 mingle_cli.rb comments [number]
 ```
 
 ###Argument Definitions:###
 * __Number__: The card number.
 * __Format__: The format of the result of the command.  Formats can contain property names nested in brackets which will then be replaced with the value of the property.
+* __Comment__: The message to leave in the comment.
 * __Filter__: Mingle's MQL syntax.
 
 
@@ -58,6 +63,12 @@ mingle_cli.rb cards 'status is ["in development"]' 'Number: [number] Pair: [dev 
 Number: 19480 Pair: Homer/Bart
 Number: 19495 Pair: Marge/Lisa
 ```
+####Adding a card comment:####
+
+```
+mingle_cli.rb comment 19480 'Doh!'
+```
+
 ####Viewing card comments:####
 
 ```
