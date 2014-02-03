@@ -5,7 +5,7 @@
 [![Dependency Status](https://gemnasium.com/ike18t/mingle_cli.png)](https://gemnasium.com/ike18t/mingle_cli)
 
 ## MingleCLI
-MingleCLI is a command line interface to the Mingle API.  Currently the application is a read-only view of card(s) information.
+MingleCLI is a command line interface to the Mingle API.
 
 #Configuring
 ```
@@ -76,5 +76,5 @@ mingle_cli.rb comments 19480
 ```
 
 ```
-2014-01-30 12:57:46 -0500 Home Simpson: Doh!
+2014-01-30 12:57:46 -0500 Homer Simpson: Doh!
 ```
