@@ -90,6 +90,26 @@ module MingleCLI
       end
     end
 
+    mode :comment do
+      description 'Comment on a card.'
+
+      argument(:number) {
+        argument :required
+        cast :int
+        description 'Number of the card to leave a comment.'
+      }
+
+      argument(:comment) {
+        argument :required
+        cast :string
+        description 'The comment body.'
+      }
+
+      def run
+        Comment.create :card_id => params[:number].value, :content => params[:comment].value
+      end
+    end
+
     mode :comments do
       description 'Get comments for a card.'
 
