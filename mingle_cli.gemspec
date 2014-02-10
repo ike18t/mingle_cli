@@ -1,5 +1,4 @@
 $LOAD_PATH.unshift(File.expand_path('../lib', __FILE__))
-
 require 'version'
 
 Gem::Specification.new do |spec|
@@ -17,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.files            = `git ls-files`.split($/)
   spec.test_files       = spec.files.grep(%r{^(test|spec|features)/})
-  spec.executables      = spec.files.grep(/^bin\//) { |f| File.basename(f) }
+  spec.executables      = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.extra_rdoc_files = ['LICENSE.txt', 'README.md']
   spec.require_paths    = ['lib']
 

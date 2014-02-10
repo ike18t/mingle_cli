@@ -12,7 +12,7 @@ describe Formattable do
 
   it { @card.format('name is [name], status is [status]').should eq("name is #{@card.name}, status is #{@card.status}") }
 
-  it { expect { @card.format('[not invalid] is invalid') }.to raise_error(NoMethodError) }
+  it { @card.format('[not invalid] is invalid').should eq(' is invalid') }
 
   it { @card.format('').should be_empty }
 
