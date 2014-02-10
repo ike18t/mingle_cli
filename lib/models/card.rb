@@ -1,5 +1,6 @@
 class Card < MingleModel
   include Formattable
+  extend MingleUnpagerizer
 
   has_many :comments
 
