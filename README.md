@@ -9,26 +9,26 @@ MingleCLI is a command line interface to the Mingle API.
 
 #Configuring
 ```
-mingle_cli.rb configure --username=[username] --password=[password] --hostname=[hostname] --project=[project]
+mingle_cli configure --username=[username] --password=[password] --hostname=[hostname] --project=[project]
 ```
 
 #Usage
 
 
 ```
-mingle_cli.rb card [number] [format]
+mingle_cli card [number] [format]
 ```
 
 ```
-mingle_cli.rb cards [filter] [format]
+mingle_cli cards [filter] [format]
 ```
 
 ```
-mingle_cli.rb comment [number] [comment]
+mingle_cli comment [number] [comment]
 ```
 
 ```
-mingle_cli.rb comments [number]
+mingle_cli comments [number]
 ```
 
 ###Argument Definitions:###
@@ -42,12 +42,12 @@ mingle_cli.rb comments [number]
 ####Configuring:####
 
 ```
-mingle_cli.rb configure --username=hsimpson --password=doh1 --hostname=power_plant.local --project=radioactive_donut
+mingle_cli configure --username=hsimpson --password=doh1 --hostname=power_plant.local --project=radioactive_donut
 ```
 ####Getting card information:####
 
 ```
-mingle_cli.rb card 19480 "Status: [status] Pair: [dev pair]"
+mingle_cli card 19480 "Status: [status] Pair: [dev pair]"
 ```
 
 ```
@@ -56,7 +56,7 @@ Status: In Development Pair: Homer/Bart
 ####Querying for cards:####
 
 ```
-mingle_cli.rb cards 'status is ["in development"]' 'Number: [number] Pair: [dev pair]'
+mingle_cli cards 'status is ["in development"]' 'Number: [number] Pair: [dev pair]'
 ```
 
 ```
@@ -66,13 +66,13 @@ Number: 19495 Pair: Marge/Lisa
 ####Adding a card comment:####
 
 ```
-mingle_cli.rb comment 19480 'Doh!'
+mingle_cli comment 19480 'Doh!'
 ```
 
 ####Viewing card comments:####
 
 ```
-mingle_cli.rb comments 19480
+mingle_cli comments 19480
 ```
 
 ```
